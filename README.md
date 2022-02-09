@@ -111,12 +111,15 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 `/etc/nginx/conf.d/` 
 
 Для более удобного поиска к событиям добавляется метка `nginx_conf`
-Перезапускаем службу `auditd: service auditd restart`\
+Перезапускаем службу `auditd`: \
+`service auditd restart`
+
 После данных изменений у нас начнут локально записываться логи аудита. \
 Чтобы проверить, что логи аудита начали записываться локально, нужно внести изменения в файл \
 `/etc/nginx/nginx.conf` \
 или поменять его атрибут, потом посмотреть информацию об изменениях: \
-`ausearch -f /etc/nginx/nginx.conf` \
+`ausearch -f /etc/nginx/conf.d/mydomain.conf` 
+
 Также можно воспользоваться поиском по файлу `/var/log/audit/audit.log`, указав тэг: \
 `grep nginx_conf /var/log/audit/audit.log`
 
