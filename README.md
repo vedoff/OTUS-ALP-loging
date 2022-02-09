@@ -125,6 +125,46 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-09%2017-52-23.png)
 
-# Настроим пересылку логов на удаленный сервер
+## Настроим пересылку логов на удаленный сервер
+### Как это работает
+Все нижеперечисленные манипуляции производятся при помощи `ansible` \
+Используются роли:
+- audit-rules-to-remote-server
+- audit-log-prepare
 
+Установим audispd-plugins
 
+Найдем и поменяем следующие строки в файле: \
+`/etc/audit/auditd.conf:` \
+`log_format = RAW` \
+`name_format = HOSTNAME` \
+В `name_format` \
+указываем `HOSTNAME` в нашем случае я указал `web-server` параметры берутся из переменных в папке `vars`, \
+чтобы в логах на удаленном сервере отображалось имя хоста.
+
+В файле \
+`/etc/audisp/plugins.d/au-remote.conf` поменяем параметр `active` на `yes`:
+`active = yes` \
+`direction = out` \
+`path = /sbin/audisp-remote` \
+`type = always` \
+`#args =` \
+`format = string` 
+
+В файле: \
+`/etc/audisp/audisp-remote.conf` \
+требуется указать адрес сервера и порт, на который будут \
+отправляться логи:
+В файле: \
+`/etc/audisp/audisp-remote.conf`
+`remote_server = 192.168.56.162`
+`port = 60`
+
+Далее перезапускаем службу auditd: `service auditd restart`
+На этом настройка web-сервера завершена. 
+## Далее настроим Log-сервер.
+Отроем порт TCP 60, для этого уберем значки комментария в файле 
+`/etc/audit/auditd.conf:`
+`tcp_listen_port = 60`
+Перезапускаем службу `auditd`: \
+`service auditd restart`
