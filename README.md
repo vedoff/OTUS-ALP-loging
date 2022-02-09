@@ -40,7 +40,7 @@
 Открываем порт 514 (TCP и UDP): \
 Находим закомментированные строки: \
 
-![]{}
+![]{https://github.com/vedoff/loging/tree/main/pict}
 
 `# provides UDP syslog reception`\
 `#module(load="imudp")` \
