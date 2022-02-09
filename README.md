@@ -154,7 +154,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 В файле: \
 `/etc/audisp/audisp-remote.conf` \
 требуется указать адрес сервера и порт, на который будут \
-отправляться логи:
+отправляться логи: \
 В файле: \
 `/etc/audisp/audisp-remote.conf` \
 `remote_server = 192.168.56.162` \ 
@@ -165,8 +165,9 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 
 На этом настройка web-сервера завершена. 
 ## Далее настроим Log-сервер.
-Отроем порт TCP 60, для этого уберем значки комментария в файле 
-`/etc/audit/auditd.conf:`
-`tcp_listen_port = 60`
+Отроем порт TCP 60 \
+В файле \
+`/etc/audit/auditd.conf:` \
+`tcp_listen_port = 60` \
 Перезапускаем службу `auditd`: \
 `service auditd restart`
