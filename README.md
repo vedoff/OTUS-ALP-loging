@@ -88,3 +88,5 @@ Tag нужен для того, чтобы логи записывались в 
 
 cat /var/log/rsyslog/web-server/nginx_access.log \
 cat /var/log/rsyslog/web-server/nginx_error.log
+
+![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-09%2017-08-41.png)
