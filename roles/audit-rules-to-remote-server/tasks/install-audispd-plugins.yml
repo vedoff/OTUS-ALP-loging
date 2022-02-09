@@ -1,0 +1,10 @@
+---
+# Установка утилиты audispd-plugins
+- name: Install tools audispd-plugins
+  yum:
+    name: audispd-plugins
+    state: latest
+  notify:
+    - restart-audit-rule
+
+

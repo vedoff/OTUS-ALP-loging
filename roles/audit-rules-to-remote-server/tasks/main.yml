@@ -1,0 +1,16 @@
+---
+# Импортируем файл установки плагина audispd-plugins
+- name: Import file install-audisp-plugin
+  import_tasks: install-audispd-plugins.yml
+
+# Импортируем файл конфигурирования auditd.conf
+- name: Import file configure-web-auditd-conf
+  import_tasks: configure-web-auditd-conf.yml
+
+# Импортируем файл конфигурации configure-web-au-remote-conf
+- name: Import file configure-web-au-remote-conf
+  import_tasks: configure-web-au-remote-conf.yml
+
+# Импортируем файл конфигурации configute-audisp-remote-conf
+- name: Import file configure-log-audisp-remote-conf
+  import_tasks: configure-web-audisp-remote-conf.yml

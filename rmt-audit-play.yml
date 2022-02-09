@@ -1,0 +1,12 @@
+---
+- hosts: loging
+  become:
+    true
+  roles:
+    - audit-rules-to-remote-server
+
+- hosts: srv-log
+  become:
+    true
+  roles:
+    - audit-log-prepare

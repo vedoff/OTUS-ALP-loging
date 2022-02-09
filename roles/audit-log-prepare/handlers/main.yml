@@ -1,0 +1,4 @@
+---
+# Перезапускаем службу auditd
+- name: restart-audit-rule
+  command: service auditd restart

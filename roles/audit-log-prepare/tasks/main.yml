@@ -1,0 +1,4 @@
+---
+# Импортируем файл конфигурации configute-log-auditd-conf
+- name: Import file configure-log-auditd-conf
+  import_tasks: configure-log-auditd-conf.yml

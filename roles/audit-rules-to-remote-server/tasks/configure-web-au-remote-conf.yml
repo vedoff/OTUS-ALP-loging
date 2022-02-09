@@ -1,0 +1,7 @@
+---
+- name: web configure-au-remote-conf.yml
+  template:
+    src: web-au-remote-conf.j2
+    dest: /etc/audisp/plugins.d/au-remote.conf
+#  notify:
+#    - restart-audit-rule

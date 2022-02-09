@@ -1,0 +1,8 @@
+---
+# Конфигурируем auditd.conf на лог сервере
+- name: configure-log-auditd-conf
+  template:
+    src: log-auditd-conf.j2
+    dest: /etc/audit/auditd.conf
+  notify:
+    - restart-audit-rule

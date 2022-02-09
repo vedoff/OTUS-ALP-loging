@@ -1,0 +1,33 @@
+## Шаблон конфигурации NGINX
+- name: Template for NGINX
+  template:
+      src: nginx.j2
+      dest: /etc/nginx/nginx.conf
+
+## Шаблон конфигурации виртуального домена      
+- name: Templte for domain
+  template:
+      src: mydomain.j2
+      dest: /etc/nginx/conf.d/mydomain.conf
+  notify:
+    - nginx reload service
+
+## Создание директории виртуального домена
+- name: Create folder for domain site
+  file:
+    path: /var/www/{{ virtual_domain }}
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+    state: directory
+
+## Копирование файла в дерикторию сайта
+- name: Copy file home-site.local
+  copy:
+    src: index.html
+    dest: /var/www/{{ virtual_domain }}
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0644'
+  notify:
+    - nginx restart service

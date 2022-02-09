@@ -1,0 +1,8 @@
+---
+# Конфигурируем auditd.conf
+- name: web configure-auditd-conf
+  template:
+    src: web-auditd-conf.j2
+    dest: /etc/audit/auditd.conf
+#  notify:
+#    - restart-audit-rule

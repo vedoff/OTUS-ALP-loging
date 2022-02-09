@@ -1,0 +1,13 @@
+---
+- hosts: loging
+  become:
+    true
+  roles:
+    - nginx
+    - audit-rules
+
+- hosts: srv-log
+  become:
+    true
+  roles:
+    - rsyslog-configure

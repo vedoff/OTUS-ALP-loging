@@ -1,0 +1,8 @@
+---
+# Конфигурируем audit при помощи шаблона
+- name: Configure audit.rules
+  template:
+    src: audit_rules.j2
+    dest: /etc/audit/rules.d/audit.rules
+  notify:
+    - restart-audit-rule
