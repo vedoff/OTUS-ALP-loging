@@ -157,7 +157,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 отправляться логи: \
 В файле: \
 `/etc/audisp/audisp-remote.conf` \
-`remote_server = 192.168.56.162` \ 
+`remote_server = 192.168.56.162` \
 `port = 60`
 
 Далее перезапускаем службу auditd: \
