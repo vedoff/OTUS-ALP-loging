@@ -124,3 +124,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 `grep nginx_conf /var/log/audit/audit.log`
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-09%2017-52-23.png)
+
+# Настроим пересылку логов на удаленный сервер
+
+
