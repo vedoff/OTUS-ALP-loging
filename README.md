@@ -38,7 +38,13 @@
 
 Для того, чтобы наш сервер мог принимать логи, нам необходимо внести следующие изменения в файл: \
 Открываем порт 514 (TCP и UDP): \
-Находим закомментированные строки: \
+Находим закомментированные строки: 
+- В нашем случае я уже их раскоментировал 
+
+![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-09%2016-21-45.png)
+
+- Возможный вариант
+
 `# provides UDP syslog reception`\
 `#module(load="imudp")` \
 `#input(type="imudp" port="514")` \
@@ -68,8 +74,8 @@
 Находим в файле /etc/nginx/nginx.conf раздел с логами и приводим их к следующему виду: 
 
 `error_log /var/log/nginx/error.log;` \
-`error_log syslog:server=192.168.50.15:514,tag=nginx_error;` \
-`access_log syslog:server=192.168.50.15:514,tag=nginx_access,severity=info combined;`
+`error_log syslog:server=192.168.56.162:514,tag=nginx_error;` \
+`access_log syslog:server=192.168.56.162:514,tag=nginx_access,severity=info combined;`
 
 Для Access-логов указыаем удаленный сервер и уровень логов, которые нужно отправлять. \
 Для error_log добавляем удаленный сервер. \
@@ -77,4 +83,8 @@
 Tag нужен для того, чтобы логи записывались в разные файлы. \
 По умолчанию, error-логи отправляют логи, которые имеют `severity: error, crit, alert` и `emerg`. 
 
+Попробуем несколько раз зайти по адресу http://192.168.56.161:8088 \
+Далее заходим на log-сервер и смотрим информацию об nginx:
 
+cat /var/log/rsyslog/web-server/nginx_access.log
+cat /var/log/rsyslog/web-server/nginx_error.log
