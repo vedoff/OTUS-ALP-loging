@@ -90,3 +90,33 @@ cat /var/log/rsyslog/web-server/nginx_access.log \
 cat /var/log/rsyslog/web-server/nginx_error.log
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-09%2017-08-41.png)
+
+### Настройка аудита, контролирующего изменения конфигурации nginx
+
+За аудит отвечает утилита auditd, в RHEL-based системах обычно он уже предустановлен.\
+Проверим это: \
+`rpm -qa | grep audit` \
+Настроим аудит изменения конфигурации nginx: \
+Добавим правило, которое будет отслеживать изменения в конфигруации nginx. Для этого в конец \
+файла /etc/audit/rules.d/audit.rules добавим следующие строки: \
+`-w /etc/nginx/nginx.conf -p wa -k nginx_conf` \
+`-w /etc/nginx/default.d/ -p wa -k nginx_conf` \
+`-w /etc/nginx/conf.d/ -p wa -k nginx_conf`
+
+Данные правила позволяют контролировать запись (w) и измения атрибутов (a) в: \
+`/etc/nginx/nginx.conf` 
+
+Всех файлов каталогов: \
+`/etc/nginx/default.d/` \
+`/etc/nginx/conf.d/` 
+
+Для более удобного поиска к событиям добавляется метка `nginx_conf`
+Перезапускаем службу `auditd: service auditd restart`\
+После данных изменений у нас начнут локально записываться логи аудита. \
+Чтобы проверить, что логи аудита начали записываться локально, нужно внести изменения в файл \
+`/etc/nginx/nginx.conf` \
+или поменять его атрибут, потом посмотреть информацию об изменениях: \
+`ausearch -f /etc/nginx/nginx.conf` \
+Также можно воспользоваться поиском по файлу `/var/log/audit/audit.log`, указав тэг: \
+`grep nginx_conf /var/log/audit/audit.log`
+
