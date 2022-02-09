@@ -40,7 +40,7 @@
 Открываем порт 514 (TCP и UDP): \
 Находим закомментированные строки: \
 
-![]()
+![](pict/Screenshot from 2022-02-09 16-21-45.png)
 
 `# provides UDP syslog reception`\
 `#module(load="imudp")` \
