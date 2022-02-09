@@ -74,8 +74,8 @@
 Находим в файле /etc/nginx/nginx.conf раздел с логами и приводим их к следующему виду: 
 
 `error_log /var/log/nginx/error.log;` \
-`error_log syslog:server=192.168.50.15:514,tag=nginx_error;` \
-`access_log syslog:server=192.168.50.15:514,tag=nginx_access,severity=info combined;`
+`error_log syslog:server=192.168.56.162:514,tag=nginx_error;` \
+`access_log syslog:server=192.168.56.162:514,tag=nginx_access,severity=info combined;`
 
 Для Access-логов указыаем удаленный сервер и уровень логов, которые нужно отправлять. \
 Для error_log добавляем удаленный сервер. \
