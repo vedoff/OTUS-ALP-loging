@@ -86,5 +86,5 @@ Tag нужен для того, чтобы логи записывались в 
 Попробуем несколько раз зайти по адресу http://192.168.56.161:8088 \
 Далее заходим на log-сервер и смотрим информацию об nginx:
 
-cat /var/log/rsyslog/web-server/nginx_access.log
+cat /var/log/rsyslog/web-server/nginx_access.log \
 cat /var/log/rsyslog/web-server/nginx_error.log
