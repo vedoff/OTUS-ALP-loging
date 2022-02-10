@@ -104,6 +104,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 `-w /etc/nginx/conf.d/ -p wa -k nginx_conf`
 
 Данные правила позволяют контролировать запись (w) и измения атрибутов (a) в: \
+В файле: \
 `/etc/nginx/nginx.conf` 
 
 Всех файлов каталогов: \
