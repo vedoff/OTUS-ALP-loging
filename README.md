@@ -133,7 +133,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 - audit-log-prepare
 
 Выполним: \
-`ansible-playbook rmt-play.yml`
+`ansible-playbook rmt-audit-play.yml`
 
 Установим audispd-plugins
 
