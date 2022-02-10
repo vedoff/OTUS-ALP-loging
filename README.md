@@ -142,7 +142,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 `log_format = RAW` \
 `name_format = HOSTNAME` \
 В `name_format` \
-указываем `HOSTNAME` в нашем случае я указал `web-server` параметры берутся из переменных в папке `vars`, \
+указываем `HOSTNAME` параметры берутся из переменных в папке `vars`, \
 чтобы в логах на удаленном сервере отображалось имя хоста.
 
 В файле \
