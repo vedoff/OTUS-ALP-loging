@@ -21,7 +21,7 @@
 Для конфигурирования серверов используется `ansible`
 
 Запускаем стенд: \
-`ansible-playbook play.yaml`
+`ansible-playbook play.yml`
 
 ### Как это работает:
 Будет развернут стенд из двух машин `web-server` и `log-server` \
@@ -131,6 +131,9 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 Используются роли:
 - audit-rules-to-remote-server
 - audit-log-prepare
+
+Выполним: \
+`ansible-playbook rmt-play.yml`
 
 Установим audispd-plugins
 
