@@ -189,8 +189,8 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-10%2010-20-01.png)
 
-Перейдем на `log-server`
-`vagrant ssh log-server`
+Перейдем на `log-server` \
+`vagrant ssh log-server` \
 `grep web-server /var/log/audit/audit.log`
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-10%2011-33-06.png)
