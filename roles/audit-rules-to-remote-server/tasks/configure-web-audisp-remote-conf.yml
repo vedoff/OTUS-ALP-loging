@@ -1,6 +1,6 @@
 ---
 
-- name: configute-web-audisp-remote-conf
+- name: configure-web-audisp-remote-conf
   template:
     src: web-audisp-remote-conf.j2
     dest: /etc/audisp/audisp-remote.conf

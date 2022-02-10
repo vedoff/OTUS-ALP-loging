@@ -1,5 +1,5 @@
 active: 'yes'
 log_format: 'RAW'
-name_format: 'web_server'
+name_format: 'HOSTNAME'
 remote_server_ip: '192.168.56.162'
 port_1: '60'
