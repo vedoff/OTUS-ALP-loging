@@ -196,7 +196,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 Видим, что `log-server` слушает на `60` порту. \
 Проверим, что идет пересылка логов `audit` на лог сервер. \
 Для этого изменим атрибуты конфиг файла домена на `nginx` \
-`vagrant ssh web-server`
+`vagrant ssh web-server` \
 `chmod g+w /etc/nginx/conf.d/medomain.conf`
 
 ![](https://github.com/vedoff/loging/blob/main/pict/Screenshot%20from%202022-02-10%2010-20-01.png)
