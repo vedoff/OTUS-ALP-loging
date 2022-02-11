@@ -158,7 +158,7 @@ cat /var/log/rsyslog/web-server/nginx_error.log
 чтобы в логах на удаленном сервере отображалось имя хоста.
 
 В файле \
-`/etc/audisp/plugins.d/au-remote.conf` поменяем параметр `active` на `yes`:
+`/etc/audisp/plugins.d/au-remote.conf` поменяем параметр `active` на `yes`: \
 `active = yes` \
 `direction = out` \
 `path = /sbin/audisp-remote` \
