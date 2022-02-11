@@ -82,7 +82,7 @@
 `/var/log/rsyslog/web-server/nginx_access.log`
 
 ### === Настроим отправку логов с web-сервера ===
-Находим в файле /etc/nginx/nginx.conf раздел с логами и приводим их к следующему виду: 
+Находим в файле /etc/nginx/conf.d/mydomain.conf раздел с логами и приводим их к следующему виду: 
 
 `error_log /var/log/nginx/error.log;` \
 `error_log syslog:server=192.168.56.162:514,tag=nginx_error;` \
